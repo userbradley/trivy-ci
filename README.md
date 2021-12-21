@@ -1,0 +1,1 @@
+# Trivy Container scanning CI
