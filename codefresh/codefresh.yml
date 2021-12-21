@@ -24,4 +24,4 @@ steps:
     when:
       condition:
         any:
-          notFeatureBranch: 'match("${{CF_BRANCH}}", "^(\d+\.)?(\d+\.)?(\*|\d+)[-](\d+\.)?(\d+\.)?(\*|\d+)", true) == true'
+          notFeatureBranch: 'match("${{CF_BRANCH}}", "\d{1,2}\.\d{1,2}\.\d{1,3}[-]\d{1,2}\.\d{1,2}\.\d{1,3}", true) == true'
