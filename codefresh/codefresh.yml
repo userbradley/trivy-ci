@@ -11,7 +11,12 @@ steps:
     revision: "${{CF_BRANCH}}"
     git: "github"
     stage: "pull"
-
+  get-env:
+    title: "Get ENV Vars for dev"
+    stage: "setup"
+    image: alpine
+    commands:
+      - env
   build_docker:
     title: "Building Docker image"
     type: "build"
