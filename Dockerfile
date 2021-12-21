@@ -1,4 +1,4 @@
-MAINTAINER bradley@breadnet.co.uk
+#MAINTAINER bradley@breadnet.co.uk
 FROM aquasec/trivy:0.19.2
 WORKDIR /app
 COPY reqs.txt init.sh issue.py ./
