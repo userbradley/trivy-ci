@@ -13,7 +13,7 @@ steps:
     stage: "pull"
   get-env:
     title: "Get ENV Vars for dev"
-    stage: "setup"
+    stage: "pull"
     image: alpine
     commands:
       - env
@@ -25,3 +25,4 @@ steps:
     tag: "${{CF_BRANCH_TAG_NORMALIZED_LOWER_CASE}}"
     dockerfile: "Dockerfile"
     stage: "build"
+    registry: trivy-ci
