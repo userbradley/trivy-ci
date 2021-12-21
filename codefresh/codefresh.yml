@@ -21,3 +21,7 @@ steps:
     dockerfile: "Dockerfile"
     stage: "build"
     registry: trivy-ci
+    when:
+      condition:
+        any:
+          notFeatureBranch: 'match("${{CF_BRANCH}}", "^(\d+\.)?(\d+\.)?(\*|\d+)[-](\d+\.)?(\d+\.)?(\*|\d+)", true) == true'
