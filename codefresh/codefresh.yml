@@ -1,0 +1,27 @@
+version: "1.0"
+stages:
+  - "pull"
+  - "build"
+
+steps:
+  clone:
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "userbradley/trivy-ci"
+    revision: "${{CF_BRANCH}}"
+    git: "github"
+    stage: "pull"
+
+  #build_docker:
+  #  title: "Building Docker image"
+  ##  type: "build"
+  #  image_name: "${{gcp_project}}/bysd-portfolio"
+  #  tag: "${{CF_SHORT_REVISION}}"
+  #  dockerfile: "Dockerfile"
+  #  stage: "docker-build"
+  set-env:
+    title: "list envs"
+    stage: "pull"
+    image: alpine
+    commands:
+      - env
