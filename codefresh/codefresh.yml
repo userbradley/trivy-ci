@@ -11,17 +11,12 @@ steps:
     revision: "${{CF_BRANCH}}"
     git: "github"
     stage: "pull"
-  get-env:
-    title: "Get ENV Vars for dev"
-    stage: "pull"
-    image: alpine
-    commands:
-      - env
+
   build_docker:
     title: "Building Docker image"
     type: "build"
     working_directory: "trivy-ci/"
-    image_name: "${{gcp_project}}/trivy-ci"
+    image_name: "userbradley/trivy-ci"
     tag: "${{CF_BRANCH_TAG_NORMALIZED_LOWER_CASE}}"
     dockerfile: "Dockerfile"
     stage: "build"
