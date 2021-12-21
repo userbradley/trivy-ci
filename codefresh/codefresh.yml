@@ -1,0 +1,27 @@
+version: "1.0"
+stages:
+  - "pull"
+  - "build"
+
+steps:
+  clone:
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "userbradley/trivy-ci"
+    revision: "${{CF_BRANCH}}"
+    git: "github"
+    stage: "pull"
+
+  build_docker:
+    title: "Building Docker image"
+    type: "build"
+    working_directory: "trivy-ci/"
+    image_name: "userbradley/trivy-ci"
+    tag: "${{CF_BRANCH_TAG_NORMALIZED_LOWER_CASE}}"
+    dockerfile: "Dockerfile"
+    stage: "build"
+    registry: trivy-ci
+    #when:
+    #  condition:
+    #    any:
+    #      NotMasterOnlyVersion: 'match("${{CF_BRANCH}}", "\d{1,2}\.\d{1,2}\.\d{1,3}[-]\d{1,2}\.\d{1,2}\.\d{1,3}", true) == true'
