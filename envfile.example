@@ -1,0 +1,6 @@
+#container=nginx:latest
+container=quay.io/codefresh/alpine:3.11
+gh_token=RGlkIHlvdSByZWFsbHkgdGhpbmsgSSB3b3VsZCBqdXN0IGdpdmUgeW91IE1ZIHRva2VuPyBsbWFvCg==
+gh_username=userbradley
+gh_repo_name=issue-testing
+debug=false
