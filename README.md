@@ -6,7 +6,7 @@ This is a CI designed application used for scanning containers using [Trivy](htt
 This application is packaged as a docker file, but can easily be run stand alone
 
 ## How this works
-1. Container is set using an envirometn variable
+1. Container is set using an environment variable
 2. `init.sh` starts the container scan using trivy, and creates 2 output files. One in json and one a text file.
 3. Python picks up these files and checks if there were any CVE's:
    1. Yes: Creates a github issue and prints the Issue URL to the output
@@ -43,7 +43,7 @@ To run this locally, you will need:
 ```python
 pip3 install -r reqs.txt
 ```
-2. Once this is completed, set the enviroment variables as required, personally I use `direnv` for this
+2. Once this is completed, set the environment variables as required, personally I use `direnv` for this
 3. Change the permissions on `init.sh` with `chmod +x init.sh` 
 4. Run `init.sh` with `./init.sh`
 
@@ -60,7 +60,7 @@ I have provided one in this repository for you, locate it [here](/envfile.exampl
 <!-- @TODO: Test on codefresh -->
 
 ---
-## Expalining the versioning format
+## Explaining the versioning format
 The formatting follows the regex string of `[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,3}[-][0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,3}`
 I am laying out the versioning like:
 
